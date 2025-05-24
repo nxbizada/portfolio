@@ -110,6 +110,13 @@ const Chatbot: React.FC = () => {
         <div className="fixed inset-0 sm:bottom-24 sm:right-6 sm:top-auto sm:left-auto sm:inset-auto z-40 sm:w-96 sm:h-[500px] bg-white dark:bg-gray-800 sm:rounded-lg shadow-2xl border-0 sm:border border-gray-200 dark:border-gray-700 flex flex-col overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 sm:p-4 flex items-center space-x-3 pt-safe-top">
+            {/* Close button for mobile - moved to left */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="sm:hidden p-1 hover:bg-white/20 rounded-full"
+            >
+              <FiX size={20} />
+            </button>
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-white/30">
               <Image
                 src="https://media.licdn.com/dms/image/v2/D4E03AQFk0I6hhGzkAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684838139084?e=1753315200&v=beta&t=Bu40Kqemnziwa4ToGKQjm6xaHVhf0hIdy1KxqCFrPZY"
@@ -123,13 +130,6 @@ const Chatbot: React.FC = () => {
               <h3 className="font-semibold text-sm sm:text-base">Chat with Farhad</h3>
               <p className="text-xs sm:text-sm opacity-90">Ask me anything about my work!</p>
             </div>
-            {/* Close button for mobile */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="sm:hidden p-2 hover:bg-white/20 rounded-full"
-            >
-              <FiX size={24} />
-            </button>
           </div>
 
           {/* Messages */}
