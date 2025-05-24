@@ -107,9 +107,9 @@ const Chatbot: React.FC = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed inset-4 sm:bottom-24 sm:right-6 sm:top-auto sm:left-auto z-40 sm:w-96 sm:h-[500px] bg-white dark:bg-gray-800 rounded-lg shadow-2xl border border-gray-200 dark:border-gray-700 flex flex-col overflow-hidden">
+        <div className="fixed inset-0 sm:bottom-24 sm:right-6 sm:top-auto sm:left-auto sm:inset-auto z-40 sm:w-96 sm:h-[500px] bg-white dark:bg-gray-800 sm:rounded-lg shadow-2xl border-0 sm:border border-gray-200 dark:border-gray-700 flex flex-col overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 sm:p-4 flex items-center space-x-3">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 sm:p-4 flex items-center space-x-3 pt-safe-top">
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-white/30">
               <Image
                 src="https://media.licdn.com/dms/image/v2/D4E03AQFk0I6hhGzkAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684838139084?e=1753315200&v=beta&t=Bu40Kqemnziwa4ToGKQjm6xaHVhf0hIdy1KxqCFrPZY"
@@ -126,32 +126,32 @@ const Chatbot: React.FC = () => {
             {/* Close button for mobile */}
             <button
               onClick={() => setIsOpen(false)}
-              className="sm:hidden p-1 hover:bg-white/20 rounded"
+              className="sm:hidden p-2 hover:bg-white/20 rounded-full"
             >
-              <FiX size={20} />
+              <FiX size={24} />
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-4 space-y-4 sm:space-y-4">
             {messages.map((message) => (
               <div
                 key={message.id}
                 className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[85%] sm:max-w-[80%] p-2 sm:p-3 rounded-lg text-sm sm:text-base ${
+                  className={`max-w-[80%] sm:max-w-[80%] p-3 sm:p-3 rounded-lg text-sm sm:text-base ${
                     message.isUser
                       ? 'bg-blue-600 text-white rounded-br-none'
                       : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-bl-none'
                   }`}
                 >
                   <div className="flex items-start space-x-2">
-                    <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center overflow-hidden ${
+                    <div className={`w-6 h-6 sm:w-6 sm:h-6 rounded-full flex items-center justify-center overflow-hidden ${
                       message.isUser ? 'bg-white/20' : ''
                     }`}>
                       {message.isUser ? (
-                        <FiUser size={12} className="text-white" />
+                        <FiUser size={14} className="text-white" />
                       ) : (
                         <Image
                           src="https://media.licdn.com/dms/image/v2/D4E03AQFk0I6hhGzkAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684838139084?e=1753315200&v=beta&t=Bu40Kqemnziwa4ToGKQjm6xaHVhf0hIdy1KxqCFrPZY"
@@ -163,7 +163,7 @@ const Chatbot: React.FC = () => {
                       )}
                     </div>
                     <div className="flex-1">
-                      <p className="text-xs sm:text-sm leading-relaxed">{message.content}</p>
+                      <p className="text-sm sm:text-sm leading-relaxed">{message.content}</p>
                       <p className={`text-xs mt-1 opacity-70 ${
                         message.isUser ? 'text-white' : 'text-gray-500 dark:text-gray-400'
                       }`}>
@@ -180,9 +180,9 @@ const Chatbot: React.FC = () => {
             
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-gray-100 dark:bg-gray-700 p-2 sm:p-3 rounded-lg rounded-bl-none">
+                <div className="bg-gray-100 dark:bg-gray-700 p-3 sm:p-3 rounded-lg rounded-bl-none">
                   <div className="flex items-center space-x-2">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full overflow-hidden">
+                    <div className="w-6 h-6 sm:w-6 sm:h-6 rounded-full overflow-hidden">
                       <Image
                         src="https://media.licdn.com/dms/image/v2/D4E03AQFk0I6hhGzkAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684838139084?e=1753315200&v=beta&t=Bu40Kqemnziwa4ToGKQjm6xaHVhf0hIdy1KxqCFrPZY"
                         alt="Farhad"
@@ -204,7 +204,7 @@ const Chatbot: React.FC = () => {
           </div>
 
           {/* Input */}
-          <div className="border-t border-gray-200 dark:border-gray-700 p-3 sm:p-4">
+          <div className="border-t border-gray-200 dark:border-gray-700 p-4 sm:p-4 pb-safe-bottom">
             <div className="flex space-x-2">
               <input
                 type="text"
@@ -212,15 +212,15 @@ const Chatbot: React.FC = () => {
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Type your message..."
-                className="flex-1 p-2 sm:p-2 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                className="flex-1 p-3 sm:p-2 text-base sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                 disabled={isLoading}
               />
               <button
                 onClick={sendMessage}
                 disabled={!inputMessage.trim() || isLoading}
-                className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="p-3 sm:p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
-                <FiSend size={16} className="sm:w-[18px] sm:h-[18px]" />
+                <FiSend size={20} className="sm:w-[18px] sm:h-[18px]" />
               </button>
             </div>
           </div>
