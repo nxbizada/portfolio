@@ -5,6 +5,7 @@ import Education from '@/components/Education'
 import Skills from '@/components/Skills'
 import Tools from '@/components/Tools'
 import Contact from '@/components/Contact'
+import Chatbot from '@/components/Chatbot'
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Tools />
         <Contact />
       </div>
+      <Chatbot />
     </main>
   )
 } 
