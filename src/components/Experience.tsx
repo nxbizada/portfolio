@@ -59,30 +59,33 @@ const Experience = () => {
         <div className="space-y-12">
           {/* Timeline */}
           <div className="relative">
-            {/* Central Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 rounded-full"></div>
+            {/* Central Timeline Line - hidden on mobile, visible on md+ */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 rounded-full"></div>
             
-            <div className="space-y-16">
+            {/* Mobile Timeline Line - visible on mobile only */}
+            <div className="md:hidden absolute left-6 top-0 h-full w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 rounded-full"></div>
+            
+            <div className="space-y-8 md:space-y-16">
               {experiences.map((exp, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} flex-row`}>
                   {/* Timeline Node */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
-                    <div className={`w-6 h-6 bg-gradient-to-r ${exp.color} rounded-full border-4 border-gray-900 ${exp.isActive ? 'animate-pulse' : ''}`}>
+                  <div className="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 z-20">
+                    <div className={`w-4 h-4 md:w-6 md:h-6 bg-gradient-to-r ${exp.color} rounded-full border-2 md:border-4 border-gray-900 ${exp.isActive ? 'animate-pulse' : ''}`}>
                       <div className="w-full h-full rounded-full bg-white/20"></div>
                     </div>
                   </div>
                   
                   {/* Experience Card */}
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                    <div className="group glass-card gradient-border p-6 rounded-2xl hover:scale-105 transition-all duration-500 relative overflow-hidden">
+                  <div className={`w-full md:w-5/12 pl-12 md:pl-0 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                    <div className="group glass-card gradient-border p-4 md:p-6 rounded-2xl hover:scale-105 transition-all duration-500 relative overflow-hidden">
                       {/* Background Gradient */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${exp.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
                       
                       <div className="relative z-10">
                         {/* Header */}
-                        <div className="mb-4">
-                          <div className="flex items-center space-x-3 mb-2">
-                            <div className="w-12 h-12 bg-white rounded-lg p-2 flex items-center justify-center overflow-hidden">
+                        <div className="mb-3 md:mb-4">
+                          <div className="flex items-center space-x-2 md:space-x-3 mb-2">
+                            <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-lg p-1 md:p-2 flex items-center justify-center overflow-hidden">
                               <Image
                                 src={exp.logo}
                                 alt={`${exp.company} logo`}
@@ -97,32 +100,32 @@ const Experience = () => {
                               </span>
                             )}
                           </div>
-                          <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
+                          <h3 className="text-lg md:text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
                             {exp.title}
                           </h3>
-                          <p className="text-blue-400 font-medium">{exp.company}</p>
+                          <p className="text-blue-400 font-medium text-sm md:text-base">{exp.company}</p>
                           
-                          <div className="flex items-center space-x-4 text-gray-400 text-sm mt-2">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-gray-400 text-xs md:text-sm mt-2 space-y-1 sm:space-y-0">
                             <span className="flex items-center space-x-1">
-                              <FaMapMarkerAlt size={12} />
+                              <FaMapMarkerAlt size={10} />
                               <span>{exp.location}</span>
                             </span>
                             <span className="flex items-center space-x-1">
-                              <FaCalendarAlt size={12} />
+                              <FaCalendarAlt size={10} />
                               <span>{exp.period}</span>
                             </span>
                           </div>
                         </div>
 
                         {/* Description */}
-                        <p className="text-gray-300 mb-4 leading-relaxed">{exp.description}</p>
+                        <p className="text-gray-300 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">{exp.description}</p>
 
                         {/* Highlights */}
-                        <div className="space-y-2">
+                        <div className="space-y-1 md:space-y-2">
                           {exp.highlights.map((highlight, idx) => (
-                            <div key={idx} className="flex items-center space-x-3 text-gray-300 text-sm">
-                              <FaChevronRight size={10} className="text-blue-400" />
-                              <span>{highlight}</span>
+                            <div key={idx} className="flex items-start space-x-2 md:space-x-3 text-gray-300 text-xs md:text-sm">
+                              <FaChevronRight size={8} className="text-blue-400 mt-1 flex-shrink-0" />
+                              <span className="leading-relaxed">{highlight}</span>
                             </div>
                           ))}
                         </div>
@@ -130,8 +133,8 @@ const Experience = () => {
                     </div>
                   </div>
                   
-                  {/* Empty space for alternating layout */}
-                  <div className="w-5/12"></div>
+                  {/* Empty space for alternating layout - only on desktop */}
+                  <div className="hidden md:block md:w-5/12"></div>
                 </div>
               ))}
             </div>

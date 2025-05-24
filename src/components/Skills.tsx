@@ -44,21 +44,20 @@ const Skills = () => {
         <h2 className="section-title">Skills Universe</h2>
         
         <div className="space-y-16">
-          {/* Floating Skills Bubbles */}
-          <div className="relative h-96 glass-card gradient-border rounded-3xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
+          {/* Floating Skill Bubbles */}
+          <div className="relative h-64 sm:h-80 md:h-96 mb-12 overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-green-900/20 backdrop-blur-sm border border-white/10">
             {skillBubbles.map((skill, index) => (
               <div
                 key={index}
                 className={`absolute ${skill.position} transform hover:scale-110 transition-all duration-500 cursor-pointer group`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className={`${skill.color}/20 backdrop-blur-sm border border-white/20 rounded-full p-4 hover:${skill.color}/30 transition-all duration-300`}>
+                <div className={`${skill.color}/20 backdrop-blur-sm border border-white/20 rounded-full p-2 sm:p-3 md:p-4 hover:${skill.color}/30 transition-all duration-300`}>
                   <div className="text-center">
-                    <div className={`w-14 h-14 ${skill.color} rounded-full flex items-center justify-center mb-2 mx-auto animate-pulse`}>
+                    <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 ${skill.color} rounded-full flex items-center justify-center mb-1 md:mb-2 mx-auto animate-pulse`}>
                       <span className="text-white font-bold text-xs">{skill.level}%</span>
                     </div>
-                    <p className="text-white text-xs font-medium opacity-90 group-hover:opacity-100 transition-opacity duration-300 max-w-20 leading-tight">
+                    <p className="text-white text-xs font-medium opacity-90 group-hover:opacity-100 transition-opacity duration-300 max-w-16 sm:max-w-20 leading-tight">
                       {skill.name}
                     </p>
                   </div>
@@ -68,8 +67,8 @@ const Skills = () => {
             
             {/* Central Hub */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center animate-spin-slow">
-                <div className="w-16 h-16 bg-gray-900 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center animate-spin-slow">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-gray-900 rounded-full flex items-center justify-center">
                   <span className="text-white font-bold text-xs">CORE</span>
                 </div>
               </div>
@@ -77,32 +76,32 @@ const Skills = () => {
           </div>
 
           {/* Interactive Skill Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {coreSkills.map((category, index) => (
               <div 
                 key={index} 
                 className="group relative overflow-hidden rounded-2xl hover:scale-105 transition-all duration-500"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
-                <div className="glass-card gradient-border p-6 rounded-2xl relative z-10">
-                  <div className="text-center mb-6">
-                    <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${category.color} text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <div className="glass-card gradient-border p-4 md:p-6 rounded-2xl relative z-10">
+                  <div className="text-center mb-4 md:mb-6">
+                    <div className={`inline-flex p-3 md:p-4 rounded-xl bg-gradient-to-r ${category.color} text-white mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300`}>
                       {category.icon}
                     </div>
-                    <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
+                    <h3 className="text-base md:text-lg font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
                       {category.title}
                     </h3>
                   </div>
                   
-                  <div className="space-y-3">
+                  <div className="space-y-2 md:space-y-3">
                     {category.skills.map((skill, idx) => (
                       <div 
                         key={idx} 
-                        className="glass-card p-3 rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:translate-x-2"
+                        className="glass-card p-2 md:p-3 rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:translate-x-1 md:hover:translate-x-2"
                       >
-                        <p className="text-gray-300 text-sm flex items-center">
-                          <span className={`w-2 h-2 bg-gradient-to-r ${category.color} rounded-full mr-3 animate-pulse`}></span>
-                          {skill}
+                        <p className="text-gray-300 text-xs md:text-sm flex items-center">
+                          <span className={`w-1.5 h-1.5 md:w-2 md:h-2 bg-gradient-to-r ${category.color} rounded-full mr-2 md:mr-3 animate-pulse`}></span>
+                          <span className="leading-tight">{skill}</span>
                         </p>
                       </div>
                     ))}
@@ -113,17 +112,17 @@ const Skills = () => {
           </div>
 
           {/* Expertise Radar */}
-          <div className="glass-card gradient-border p-8 rounded-3xl">
-            <h3 className="text-2xl font-semibold text-white mb-8 text-center">Expertise Level</h3>
-            <div className="grid md:grid-cols-3 gap-8">
+          <div className="glass-card gradient-border p-4 md:p-8 rounded-3xl">
+            <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 md:mb-8 text-center">Expertise Level</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
               {[
                 { skill: "IT & Operations", level: 95, color: "blue" },
                 { skill: "Process Optimization", level: 90, color: "purple" },
                 { skill: "Project Management", level: 88, color: "green" }
               ].map((item, index) => (
                 <div key={index} className="text-center">
-                  <div className="relative w-32 h-32 mx-auto mb-4">
-                    <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 36 36">
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto mb-3 md:mb-4">
+                    <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
                       <path
                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                         fill="none"
@@ -140,19 +139,19 @@ const Skills = () => {
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-white">{item.level}%</span>
+                      <span className="text-lg md:text-2xl font-bold text-white">{item.level}%</span>
                     </div>
                   </div>
-                  <p className="text-gray-300 font-medium">{item.skill}</p>
+                  <p className="text-gray-300 font-medium text-sm md:text-base">{item.skill}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Personal Aspects */}
-          <div className="glass-card gradient-border p-8 rounded-3xl">
-            <h3 className="text-2xl font-semibold text-white mb-8 text-center">Personal Aspects</h3>
-            <div className="grid md:grid-cols-5 gap-6">
+          <div className="glass-card gradient-border p-4 md:p-8 rounded-3xl">
+            <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 md:mb-8 text-center">Personal Aspects</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
               {[
                 { trait: "Good Vibes", icon: "😊", color: "from-yellow-400 to-orange-500", description: "Positive energy in every interaction" },
                 { trait: "Straight to the Point", icon: "🎯", color: "from-blue-400 to-blue-600", description: "Clear and direct communication" },
@@ -165,14 +164,14 @@ const Skills = () => {
                   className="group relative overflow-hidden rounded-2xl hover:scale-105 transition-all duration-500"
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${aspect.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
-                  <div className="glass-card gradient-border p-6 rounded-2xl relative z-10 text-center">
-                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="glass-card gradient-border p-4 md:p-6 rounded-2xl relative z-10 text-center">
+                    <div className="text-2xl md:text-4xl mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300">
                       {aspect.icon}
                     </div>
-                    <h4 className="text-lg font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
+                    <h4 className="text-sm md:text-lg font-semibold text-white mb-2 md:mb-3 group-hover:text-blue-400 transition-colors duration-300 leading-tight">
                       {aspect.trait}
                     </h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    <p className="text-gray-300 text-xs md:text-sm leading-relaxed">
                       {aspect.description}
                     </p>
                   </div>
