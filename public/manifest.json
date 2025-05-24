@@ -1,0 +1,13 @@
+{
+  "name": "Farhad Nabizada Portfolio",
+  "short_name": "FN Portfolio",
+  "description": "Professional portfolio showcasing expertise in IT operations and management engineering",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#111827",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity"],
+  "lang": "en",
+  "dir": "ltr"
+} 
