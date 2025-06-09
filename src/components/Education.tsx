@@ -6,13 +6,13 @@ const Education = () => {
   const education = [
     {
       degree: "Master's in Management Engineering",
-      institution: "Your University",
+      institution: "Aalborg University",
       description: "Specialized in operational excellence and strategic management",
       icon: <FaGraduationCap size={24} color="#60A5FA" />
     },
     {
       degree: "Bachelor's in Information Technology",
-      institution: "Your University",
+      institution: "Aalborg University",
       description: "Focused on IT infrastructure and systems management",
       icon: <FaGraduationCap size={24} color="#60A5FA" />
     }

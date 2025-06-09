@@ -8,8 +8,8 @@ const Experience = () => {
       title: "Associate Manager - Operations & IT",
       company: "s360",
       location: "Aarhus, Denmark",
-      period: "2021 - Present",
-      description: "Leading IT operations across multiple European offices with 300+ employees.",
+      period: "2023 - Present",
+      description: "Co-leading IT operations across multiple European offices with 300+ employees.",
       highlights: [
         "Google Workspace & Azure administration",
         "IT internship program design",
