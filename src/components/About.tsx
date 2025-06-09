@@ -3,7 +3,7 @@ import { FaUserGraduate, FaBriefcase, FaMusic, FaAward } from 'react-icons/fa';
 
 const About = () => {
   return (
-    <section id="about" className="py-12 md:py-20 relative">
+    <section id="about" className="pt-4 pb-12 md:pt-8 md:pb-20 relative">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="section-title">About Me</h2>
         
@@ -11,8 +11,7 @@ const About = () => {
           {/* Main Professional Summary */}
           <div className="glass-card gradient-border p-4 sm:p-6 md:p-8 rounded-2xl text-center">
             <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
-              at s360 I oversee IT-operations across multiple European offices with 300+ employees. 
-              I specialize in   and mentoring IT talent. 
+              As much as I love IT, business development and technology - there is a creative side to me as well
               <span className="text-blue-400"> Beyond tech, I'm a professional music producer with Sony Music Entertainment.</span>
             </p>
           </div>

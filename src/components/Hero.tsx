@@ -24,7 +24,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section className="h-auto py-12 md:py-20 flex items-center justify-center relative overflow-hidden">
         {/* Enhanced animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float" />
@@ -60,75 +60,19 @@ const Hero = () => {
               </p>
             </div>
 
-            {/* Skills & Personal Aspects Section */}
-            <div className="space-y-6 md:space-y-8">
-              {/* Personal Aspects */}
-              <div className="glass-card gradient-border p-4 md:p-6 rounded-2xl max-w-5xl mx-auto">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-4 md:mb-6">Personal Aspects</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
-                  {[
-                    { trait: "Good Vibes", icon: "😊", color: "from-yellow-400 to-orange-500" },
-                    { trait: "Straight to the Point", icon: "🎯", color: "from-blue-400 to-blue-600" },
-                    { trait: "Transparent", icon: "🔍", color: "from-cyan-400 to-teal-500" },
-                    { trait: "Creative & Innovative", icon: "💡", color: "from-purple-400 to-pink-500" },
-                    { trait: "Solution-Oriented", icon: "⚡", color: "from-green-400 to-emerald-500" }
-                  ].map((aspect, index) => (
-                    <div 
-                      key={index} 
-                      className="group relative overflow-hidden rounded-xl hover:scale-105 transition-all duration-500"
-                    >
-                      <div className={`absolute inset-0 bg-gradient-to-br ${aspect.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
-                      <div className="glass-card p-3 md:p-4 rounded-xl relative z-10 text-center">
-                        <div className="text-lg md:text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                          {aspect.icon}
-                        </div>
-                        <h4 className="text-xs md:text-sm font-semibold text-white group-hover:text-blue-400 transition-colors duration-300 leading-tight">
-                          {aspect.trait}
-                        </h4>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            {/* Key Expertise Icons */}
+            <div className="flex justify-center space-x-3 sm:space-x-4 md:space-x-6 mb-6 md:mb-8">
+              <div className="glass-card hover-card p-3 sm:p-4 md:p-6 rounded-xl group">
+                <FaServer size={24} className="sm:w-8 sm:h-8 md:w-9 md:h-9 text-blue-400 group-hover:scale-110 transition-transform" />
+                <p className="text-xs sm:text-sm text-gray-300 mt-1 md:mt-2">Infrastructure</p>
               </div>
-
-              {/* Key Expertise Icons */}
-              <div className="flex justify-center space-x-3 sm:space-x-4 md:space-x-6">
-                <div className="glass-card hover-card p-3 sm:p-4 md:p-6 rounded-xl group">
-                  <FaServer size={24} className="sm:w-8 sm:h-8 md:w-9 md:h-9 text-blue-400 group-hover:scale-110 transition-transform" />
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1 md:mt-2">Infrastructure</p>
-                </div>
-                <div className="glass-card hover-card p-3 sm:p-4 md:p-6 rounded-xl group">
-                  <FaChartLine size={24} className="sm:w-8 sm:h-8 md:w-9 md:h-9 text-purple-400 group-hover:scale-110 transition-transform" />
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1 md:mt-2">Analytics</p>
-                </div>
-                <div className="glass-card hover-card p-3 sm:p-4 md:p-6 rounded-xl group">
-                  <FaUsers size={24} className="sm:w-8 sm:h-8 md:w-9 md:h-9 text-blue-400 group-hover:scale-110 transition-transform" />
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1 md:mt-2">Leadership</p>
-                </div>
+              <div className="glass-card hover-card p-3 sm:p-4 md:p-6 rounded-xl group">
+                <FaChartLine size={24} className="sm:w-8 sm:h-8 md:w-9 md:h-9 text-purple-400 group-hover:scale-110 transition-transform" />
+                <p className="text-xs sm:text-sm text-gray-300 mt-1 md:mt-2">Analytics</p>
               </div>
-
-              {/* Core Skills */}
-              <div className="glass-card gradient-border p-4 md:p-6 rounded-2xl max-w-5xl mx-auto">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-4 md:mb-6 text-center">Core Skills</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-                  {[
-                    { title: "IT & Operations", skills: ["Infrastructure", "System Admin", "Cloud Architecture"], color: "from-blue-500 to-cyan-500" },
-                    { title: "Process & Automation", skills: ["Optimization", "Change Mgmt", "Automation"], color: "from-purple-500 to-pink-500" },
-                    { title: "Leadership", skills: ["Project Mgmt", "Mentorship", "Strategy"], color: "from-green-500 to-emerald-500" },
-                    { title: "Development", skills: ["Programming", "App Dev", "Integration"], color: "from-orange-500 to-red-500" }
-                  ].map((category, index) => (
-                    <div key={index} className="text-center">
-                      <div className={`p-2 md:p-3 rounded-lg bg-gradient-to-r ${category.color}/20 mb-2 md:mb-3`}>
-                        <h4 className="text-xs md:text-sm font-semibold text-white mb-1 md:mb-2">{category.title}</h4>
-                        <div className="space-y-1">
-                          {category.skills.map((skill, idx) => (
-                            <p key={idx} className="text-xs text-gray-300 leading-tight">{skill}</p>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div className="glass-card hover-card p-3 sm:p-4 md:p-6 rounded-xl group">
+                <FaUsers size={24} className="sm:w-8 sm:h-8 md:w-9 md:h-9 text-blue-400 group-hover:scale-110 transition-transform" />
+                <p className="text-xs sm:text-sm text-gray-300 mt-1 md:mt-2">Leadership</p>
               </div>
             </div>
 
