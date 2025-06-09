@@ -41,37 +41,84 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="section-title">Skills Universe</h2>
+        <h2 className="section-title">Skills & Personal Aspects</h2>
         
         <div className="space-y-16">
-          {/* Floating Skill Bubbles */}
-          <div className="relative h-64 sm:h-80 md:h-96 mb-12 overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-green-900/20 backdrop-blur-sm border border-white/10">
-            {skillBubbles.map((skill, index) => (
-              <div
-                key={index}
-                className={`absolute ${skill.position} transform hover:scale-110 transition-all duration-500 cursor-pointer group`}
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className={`${skill.color}/20 backdrop-blur-sm border border-white/20 rounded-full p-2 sm:p-3 md:p-4 hover:${skill.color}/30 transition-all duration-300`}>
-                  <div className="text-center">
-                    <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 ${skill.color} rounded-full flex items-center justify-center mb-1 md:mb-2 mx-auto animate-pulse`}>
-                      <span className="text-white font-bold text-xs">{skill.level}%</span>
+          {/* Personal Aspects - Moved to the top */}
+          <div className="glass-card gradient-border p-4 md:p-8 rounded-3xl">
+            <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 md:mb-8 text-center">Personal Aspects</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+              {[
+                { trait: "Good Vibes", icon: "😊", color: "from-yellow-400 to-orange-500", description: "Positive energy in every interaction" },
+                { trait: "Straight to the Point", icon: "🎯", color: "from-blue-400 to-blue-600", description: "Clear and direct communication" },
+                { trait: "Transparent", icon: "🔍", color: "from-cyan-400 to-teal-500", description: "Open and honest approach" },
+                { trait: "Creative & Innovative", icon: "💡", color: "from-purple-400 to-pink-500", description: "Fresh perspectives and solutions" },
+                { trait: "Solution-Oriented", icon: "⚡", color: "from-green-400 to-emerald-500", description: "Focus on results and outcomes" }
+              ].map((aspect, index) => (
+                <div 
+                  key={index} 
+                  className="group relative overflow-hidden rounded-2xl hover:scale-105 transition-all duration-500"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${aspect.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
+                  <div className="glass-card gradient-border p-3 md:p-6 rounded-2xl relative z-10 text-center">
+                    <div className="text-xl md:text-4xl mb-2 md:mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {aspect.icon}
                     </div>
-                    <p className="text-white text-xs font-medium opacity-90 group-hover:opacity-100 transition-opacity duration-300 max-w-16 sm:max-w-20 leading-tight">
-                      {skill.name}
+                    <h4 className="text-xs md:text-lg font-semibold text-white mb-1 md:mb-3 group-hover:text-blue-400 transition-colors duration-300 leading-tight">
+                      {aspect.trait}
+                    </h4>
+                    <p className="text-gray-300 text-xs md:text-sm leading-relaxed hidden md:block">
+                      {aspect.description}
                     </p>
                   </div>
                 </div>
-              </div>
-            ))}
-            
-            {/* Central Hub */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center animate-spin-slow">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-gray-900 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-xs">CORE</span>
+              ))}
+            </div>
+          </div>
+
+          {/* Skills Universe - Improved Mobile Layout */}
+          <div className="relative">
+            {/* Desktop: Floating Skill Bubbles */}
+            <div className="hidden lg:block relative h-96 mb-12 overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-green-900/20 backdrop-blur-sm border border-white/10">
+              {skillBubbles.map((skill, index) => (
+                <div
+                  key={index}
+                  className={`absolute ${skill.position} transform hover:scale-110 transition-all duration-500 cursor-pointer group`}
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <div className={`${skill.color}/20 backdrop-blur-sm border border-white/20 rounded-full p-4 hover:${skill.color}/30 transition-all duration-300`}>
+                    <div className="text-center">
+                      <div className={`w-14 h-14 ${skill.color} rounded-full flex items-center justify-center mb-2 mx-auto animate-pulse`}>
+                        <span className="text-white font-bold text-xs">{skill.level}%</span>
+                      </div>
+                      <p className="text-white text-xs font-medium opacity-90 group-hover:opacity-100 transition-opacity duration-300 max-w-20 leading-tight">
+                        {skill.name}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              
+              {/* Central Hub */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center animate-spin-slow">
+                  <div className="w-16 h-16 bg-gray-900 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold text-xs">CORE</span>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            {/* Mobile: Simple Grid Layout */}
+            <div className="lg:hidden grid grid-cols-2 sm:grid-cols-3 gap-4 mb-12">
+              {skillBubbles.map((skill, index) => (
+                <div key={index} className="glass-card gradient-border p-4 rounded-xl text-center hover:scale-105 transition-all duration-300">
+                  <div className={`w-12 h-12 ${skill.color} rounded-full flex items-center justify-center mb-3 mx-auto`}>
+                    <span className="text-white font-bold text-xs">{skill.level}%</span>
+                  </div>
+                  <p className="text-white text-xs font-medium leading-tight">{skill.name}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -143,38 +190,6 @@ const Skills = () => {
                     </div>
                   </div>
                   <p className="text-gray-300 font-medium text-sm md:text-base">{item.skill}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Personal Aspects */}
-          <div className="glass-card gradient-border p-4 md:p-8 rounded-3xl">
-            <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 md:mb-8 text-center">Personal Aspects</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
-              {[
-                { trait: "Good Vibes", icon: "😊", color: "from-yellow-400 to-orange-500", description: "Positive energy in every interaction" },
-                { trait: "Straight to the Point", icon: "🎯", color: "from-blue-400 to-blue-600", description: "Clear and direct communication" },
-                { trait: "Transparent", icon: "🔍", color: "from-cyan-400 to-teal-500", description: "Open and honest approach" },
-                { trait: "Creative & Innovative", icon: "💡", color: "from-purple-400 to-pink-500", description: "Fresh perspectives and solutions" },
-                { trait: "Solution-Oriented", icon: "⚡", color: "from-green-400 to-emerald-500", description: "Focus on results and outcomes" }
-              ].map((aspect, index) => (
-                <div 
-                  key={index} 
-                  className="group relative overflow-hidden rounded-2xl hover:scale-105 transition-all duration-500"
-                >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${aspect.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
-                  <div className="glass-card gradient-border p-4 md:p-6 rounded-2xl relative z-10 text-center">
-                    <div className="text-2xl md:text-4xl mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {aspect.icon}
-                    </div>
-                    <h4 className="text-sm md:text-lg font-semibold text-white mb-2 md:mb-3 group-hover:text-blue-400 transition-colors duration-300 leading-tight">
-                      {aspect.trait}
-                    </h4>
-                    <p className="text-gray-300 text-xs md:text-sm leading-relaxed">
-                      {aspect.description}
-                    </p>
-                  </div>
                 </div>
               ))}
             </div>

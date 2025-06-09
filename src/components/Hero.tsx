@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
-import { FaLinkedin, FaArrowDown, FaServer, FaChartLine, FaUsers, FaDownload, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaServer, FaChartLine, FaUsers, FaDownload, FaEnvelope } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 import Image from 'next/image';
 import CVDocument from './CVDocument';
@@ -120,14 +120,9 @@ const Hero = () => {
               </span>
             </button>
           </div>
-
-          <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <FaArrowDown size={20} className="md:w-6 md:h-6 text-gray-400" />
-          </div>
         </div>
 
         {/* Decorative elements */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-900 to-transparent" />
       </section>
 
       {/* Hidden CV Document for PDF Generation */}
