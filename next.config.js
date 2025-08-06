@@ -2,12 +2,8 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'media.licdn.com',
-        port: '',
-        pathname: '/dms/image/**',
-      },
+      // Removed LinkedIn domain since we're using local images now
+      // Add other external domains here if needed in the future
     ],
   },
 }

@@ -6,6 +6,7 @@ import type { IconType } from 'react-icons';
 import Image from 'next/image';
 import CVDocument from './CVDocument';
 import { downloadCV } from '../utils/pdfGenerator';
+import ProfileImage from './ProfileImage';
 
 const Hero = () => {
   const cvRef = useRef<HTMLDivElement>(null);
@@ -37,8 +38,7 @@ const Hero = () => {
             {/* Profile Image */}
             <div className="flex justify-center mb-6 md:mb-8">
               <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden glass-card gradient-border shadow-2xl">
-                <Image
-                  src="https://media.licdn.com/dms/image/v2/D4E03AQFk0I6hhGzkAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684838139084?e=1753315200&v=beta&t=Bu40Kqemnziwa4ToGKQjm6xaHVhf0hIdy1KxqCFrPZY"
+                <ProfileImage
                   alt="Farhad Nabizada - IT & Operations Manager"
                   fill
                   className="object-cover"

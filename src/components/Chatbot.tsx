@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FiMessageCircle, FiX, FiSend, FiUser } from 'react-icons/fi';
 import Image from 'next/image';
+import ProfileImage from './ProfileImage';
 
 interface Message {
   id: string;
@@ -119,8 +120,7 @@ const Chatbot: React.FC = () => {
               <FiX size={22} />
             </button>
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-white/30 mr-3">
-              <Image
-                src="https://media.licdn.com/dms/image/v2/D4E03AQFk0I6hhGzkAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684838139084?e=1753315200&v=beta&t=Bu40Kqemnziwa4ToGKQjm6xaHVhf0hIdy1KxqCFrPZY"
+              <ProfileImage
                 alt="Farhad Nabizada"
                 width={40}
                 height={40}
@@ -154,8 +154,7 @@ const Chatbot: React.FC = () => {
                       {message.isUser ? (
                         <FiUser size={14} className="text-white" />
                       ) : (
-                        <Image
-                          src="https://media.licdn.com/dms/image/v2/D4E03AQFk0I6hhGzkAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684838139084?e=1753315200&v=beta&t=Bu40Kqemnziwa4ToGKQjm6xaHVhf0hIdy1KxqCFrPZY"
+                        <ProfileImage
                           alt="Farhad"
                           width={24}
                           height={24}
@@ -184,8 +183,7 @@ const Chatbot: React.FC = () => {
                 <div className="bg-gray-100 dark:bg-gray-700 p-3 sm:p-3 rounded-lg rounded-bl-none">
                   <div className="flex items-center space-x-2">
                     <div className="w-6 h-6 sm:w-6 sm:h-6 rounded-full overflow-hidden">
-                      <Image
-                        src="https://media.licdn.com/dms/image/v2/D4E03AQFk0I6hhGzkAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684838139084?e=1753315200&v=beta&t=Bu40Kqemnziwa4ToGKQjm6xaHVhf0hIdy1KxqCFrPZY"
+                      <ProfileImage
                         alt="Farhad"
                         width={24}
                         height={24}
