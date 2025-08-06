@@ -23,6 +23,7 @@ const ProfileImage: React.FC<ProfileImageProps> = ({
   const [imageIndex, setImageIndex] = useState(0);
   
   // Array of fallback images in order of preference
+  // Updated to use local images only - cache bust v2
   const imageSources = [
     '/images/images.jpg',
     '/images/image.jpg',

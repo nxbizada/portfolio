@@ -1,8 +1,25 @@
-import React from 'react';
-import { FaFilePdf, FaLungs, FaLock, FaGithub, FaExternalLinkAlt, FaCode, FaCloud } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaFilePdf, FaLungs, FaLock, FaGithub, FaExternalLinkAlt, FaCode, FaCloud, FaDownload, FaTimes } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 
 const Tools = () => {
+  const [showInstallGuide, setShowInstallGuide] = useState(false);
+  const [currentDownloadType, setCurrentDownloadType] = useState<string>('');
+
+  const handleDownload = (downloadUrl: string, downloadType: string) => {
+    // Trigger download
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.download = downloadUrl.split('/').pop() || 'download.zip';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Show installation guide
+    setCurrentDownloadType(downloadType);
+    setShowInstallGuide(true);
+  };
+
   const tools = [
     {
       icon: <FaFilePdf size={32} className="text-red-400" />,
@@ -16,7 +33,11 @@ const Tools = () => {
         "Cross-platform compatibility"
       ],
       status: "Production",
-      category: "Document Management"
+      category: "Document Management",
+      hasDownload: true,
+      downloadUrl: "/extensions/pdf-merger-extension.zip",
+      downloadText: "Download Chrome Extension",
+      downloadType: "extension"
     },
     {
       icon: <FaLungs size={32} className="text-blue-400" />,
@@ -30,7 +51,11 @@ const Tools = () => {
         "Offline functionality"
       ],
       status: "Development",
-      category: "Health & Wellness"
+      category: "Health & Wellness",
+      hasDownload: true,
+      downloadUrl: "/extensions/breathingAssistant.zip",
+      downloadText: "Download PWA",
+      downloadType: "pwa"
     },
     {
       icon: <FaLock size={32} className="text-green-400" />,
@@ -44,7 +69,8 @@ const Tools = () => {
         "API security integration"
       ],
       status: "Production",
-      category: "Security & Infrastructure"
+      category: "Security & Infrastructure",
+      hasDownload: false
     }
   ];
 
@@ -129,11 +155,21 @@ const Tools = () => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                      <button className="glass-card hover-card flex items-center justify-center space-x-2 md:space-x-3 px-4 md:px-6 py-2.5 md:py-3 rounded-lg bg-blue-500/20">
-                        <FaCode size={14} className="md:w-4 md:h-4" />
-                        <span className="text-xs md:text-sm font-medium">View Details</span>
-                      </button>
-                      <button className="glass-card hover-card flex items-center justify-center space-x-2 md:space-x-3 px-4 md:px-6 py-2.5 md:py-3 rounded-lg bg-green-500/20">
+                      {tool.hasDownload ? (
+                        <button
+                          onClick={() => handleDownload(tool.downloadUrl!, tool.downloadType || '')}
+                          className="glass-card hover-card flex items-center justify-center space-x-2 md:space-x-3 px-4 md:px-6 py-2.5 md:py-3 rounded-lg bg-green-500/20 hover:bg-green-500/30 transition-colors"
+                        >
+                          <FaDownload size={14} className="md:w-4 md:h-4" />
+                          <span className="text-xs md:text-sm font-medium">{tool.downloadText}</span>
+                        </button>
+                      ) : (
+                        <button className="glass-card hover-card flex items-center justify-center space-x-2 md:space-x-3 px-4 md:px-6 py-2.5 md:py-3 rounded-lg bg-blue-500/20">
+                          <FaCode size={14} className="md:w-4 md:h-4" />
+                          <span className="text-xs md:text-sm font-medium">View Details</span>
+                        </button>
+                      )}
+                      <button className="glass-card hover-card flex items-center justify-center space-x-2 md:space-x-3 px-4 md:px-6 py-2.5 md:py-3 rounded-lg bg-purple-500/20">
                         <FaExternalLinkAlt size={14} className="md:w-4 md:h-4" />
                         <span className="text-xs md:text-sm font-medium">Live Demo</span>
                       </button>
@@ -179,6 +215,110 @@ const Tools = () => {
           </div>
         </div>
       </div>
+
+      {/* Installation Guide Modal */}
+      {showInstallGuide && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="glass-card gradient-border p-6 md:p-8 rounded-2xl max-w-md w-full max-h-[80vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg md:text-xl font-semibold text-white">Installation Guide</h3>
+              <button
+                onClick={() => setShowInstallGuide(false)}
+                className="p-2 hover:bg-white/20 rounded-full"
+              >
+                <FaTimes size={20} />
+              </button>
+            </div>
+            
+            <div className="space-y-4 text-sm md:text-base text-gray-300">
+              {currentDownloadType === 'extension' ? (
+                <>
+                  <p className="font-medium text-white">How to install the PDF Merger Chrome Extension:</p>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                      <p>Extract the downloaded ZIP file to a folder on your computer</p>
+                    </div>
+                    
+                    <div className="flex items-start space-x-3">
+                      <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                      <p>Open Chrome and go to <code className="bg-gray-700 px-2 py-1 rounded">chrome://extensions/</code></p>
+                    </div>
+                    
+                    <div className="flex items-start space-x-3">
+                      <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                      <p>Enable "Developer mode" in the top right corner</p>
+                    </div>
+                    
+                    <div className="flex items-start space-x-3">
+                      <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">4</span>
+                      <p>Click "Load unpacked" and select the extracted folder</p>
+                    </div>
+                    
+                    <div className="flex items-start space-x-3">
+                      <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">5</span>
+                      <p>The extension will appear in your toolbar and be ready to use!</p>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 p-4 bg-blue-500/20 rounded-lg border border-blue-500/30">
+                    <p className="text-blue-300 text-sm">
+                      <strong>Tip:</strong> The extension will help you merge PDF files directly from your browser. 
+                      Simply click the extension icon and follow the interface to merge your documents.
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p className="font-medium text-white">How to install the BreatheAssistant PWA:</p>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                      <p>Extract the downloaded ZIP file to a folder on your computer</p>
+                    </div>
+                    
+                    <div className="flex items-start space-x-3">
+                      <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                      <p>Open the extracted folder and find the <code className="bg-gray-700 px-2 py-1 rounded">index.html</code> file</p>
+                    </div>
+                    
+                    <div className="flex items-start space-x-3">
+                      <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                      <p>Double-click the <code className="bg-gray-700 px-2 py-1 rounded">index.html</code> file to open in your browser</p>
+                    </div>
+                    
+                    <div className="flex items-start space-x-3">
+                      <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">4</span>
+                      <p>Click "Install" in your browser's address bar to add to your device</p>
+                    </div>
+                    
+                    <div className="flex items-start space-x-3">
+                      <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">5</span>
+                      <p>The app will be available offline and work like a native application!</p>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 p-4 bg-blue-500/20 rounded-lg border border-blue-500/30">
+                    <p className="text-blue-300 text-sm">
+                      <strong>Tip:</strong> The BreatheAssistant helps you with guided breathing exercises and wellness monitoring. 
+                      Perfect for stress relief and respiratory health.
+                    </p>
+                  </div>
+                </>
+              )}
+            </div>
+            
+            <button
+              onClick={() => setShowInstallGuide(false)}
+              className="w-full mt-6 glass-card hover-card py-3 rounded-lg bg-blue-500/20 hover:bg-blue-500/30 transition-colors"
+            >
+              Got it!
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
