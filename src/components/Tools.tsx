@@ -5,6 +5,22 @@ import { FaFilePdf, FaLungs, FaLock, FaGithub, FaCode, FaCloud, FaDownload, FaTi
 import type { IconType } from 'react-icons';
 import Image from 'next/image';
 
+interface Tool {
+  icon: React.ReactElement;
+  logo?: string;
+  title: string;
+  description: string;
+  technologies: string[];
+  features: string[];
+  status: string;
+  category: string;
+  hasDownload: boolean;
+  externalUrl?: string;
+  downloadUrl?: string;
+  downloadType?: string;
+  downloadText?: string;
+}
+
 const Tools = () => {
   const [showInstallGuide, setShowInstallGuide] = useState(false);
   const [currentDownloadType, setCurrentDownloadType] = useState<string>('');
@@ -23,7 +39,7 @@ const Tools = () => {
     setShowInstallGuide(true);
   };
 
-  const tools = [
+  const tools: Tool[] = [
     {
       icon: <FaGlobe size={32} className="text-blue-400" />,
       logo: "/images/coverlayimage.png",
@@ -187,13 +203,13 @@ const Tools = () => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                      {tool.hasDownload ? (
+                      {tool.hasDownload && tool.downloadUrl ? (
                         <button
                           onClick={() => handleDownload(tool.downloadUrl!, tool.downloadType || '')}
                           className="glass-card hover-card flex items-center justify-center space-x-2 md:space-x-3 px-4 md:px-6 py-2.5 md:py-3 rounded-lg bg-green-500/20 hover:bg-green-500/30 transition-colors"
                         >
                           <FaDownload size={14} className="md:w-4 md:h-4" />
-                          <span className="text-xs md:text-sm font-medium">{tool.downloadText}</span>
+                          <span className="text-xs md:text-sm font-medium">{tool.downloadText || 'Download'}</span>
                         </button>
                       ) : tool.externalUrl ? (
                         <a
