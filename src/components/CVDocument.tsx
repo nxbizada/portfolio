@@ -24,7 +24,7 @@ const CVDocument = React.forwardRef<HTMLDivElement>((props, ref) => {
             <h1 className="text-2xl font-bold text-gray-900 mb-1 tracking-tight">
               Farhad Nabizada
             </h1>
-            <h2 className="text-sm font-medium text-blue-600 mb-2">Associate Manager - Operations & IT</h2>
+            <h2 className="text-sm font-medium text-blue-600 mb-2">Operations & IT Management</h2>
             <p className="text-sm text-gray-600 leading-relaxed max-w-md">
               Results-driven IT operations manager leading teams of 300+ employees across European offices. 
               Expert in process optimization, change management, and strategic technology initiatives with proven automation and deployment experience.
