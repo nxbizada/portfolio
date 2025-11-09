@@ -5,48 +5,109 @@ import Image from 'next/image';
 const Experience = () => {
   const experiences = [
     {
-      title: "Associate Manager - Operations & IT",
-      company: "s360",
+      title: "Handicaphjælper",
+      company: "Aarhus Kommune",
       location: "Aarhus, Denmark",
-      period: "2023 - Present",
-      description: "Co-leading IT operations across multiple European offices with 300+ employees.",
+      period: "Jan 2014 - Present",
+      description: "Disability helper, helping wheelchair users when needed. Providing essential support and assistance to individuals with disabilities.",
       highlights: [
-        "Google Workspace & Azure administration",
-        "IT internship program design",
-        "Cost optimization & process improvement"
+        "Communication & problem-solving",
+        "Teamwork & collaboration",
+        "Personal care and mobility assistance"
       ],
-      color: "from-blue-500 to-cyan-500",
-      logo: "/logos/s360_logo_1200x628.png",
+      color: "from-teal-500 to-cyan-500",
+      logo: "/images/aarhus-kommune-logo.png",
       isActive: true
     },
     {
-      title: "Music Producer",
-      company: "Sony Music Entertainment",
-      location: "Remote",
-      period: "2023 - Present",
-      description: "Professional music production, beatmaking, and recording engineering.",
+      title: "Associate Manager - Operations & IT",
+      company: "s360",
+      location: "Aarhus C, Denmark",
+      period: "May 2023 - Nov 2025",
+      description: "Co-leading IT operations across multiple European offices with 300+ employees. Full-time position focusing on business strategy and operational excellence.",
       highlights: [
-        "Contract work with Sony Music",
-        "Music composition & production",
-        "Audio engineering & mastering"
+        "Business strategy & operations management",
+        "IT infrastructure & stakeholder engagement",
+        "Development projects & presentation skills",
+        "Problem-solving & process optimization"
+      ],
+      color: "from-blue-500 to-cyan-500",
+      logo: "/logos/s360_logo_1200x628.png",
+      isActive: false
+    },
+    {
+      title: "Producer",
+      company: "Sony Music Entertainment",
+      location: "Hybrid",
+      period: "Oct 2023",
+      description: "Contract work as producer, beatmaker, recording engineer, composer and assistant songwriter.",
+      highlights: [
+        "Music production & beatmaking",
+        "Recording engineering",
+        "Composition & songwriting assistance"
       ],
       color: "from-purple-500 to-pink-500",
       logo: "/logos/png-clipart-sony-music-headline-security-entertainment-music-industry-logo-sony-music-text-logo.png",
-      isActive: true
+      isActive: false
+    },
+    {
+      title: "Sustainability Advisor",
+      company: "European House of Beds A/S",
+      location: "Horsens, Midtjylland, Denmark",
+      period: "Feb 2023 - May 2023",
+      description: "Internship position focusing on sustainability initiatives and environmental practices within the furniture industry.",
+      highlights: [
+        "Sustainability strategy development",
+        "Environmental impact assessment",
+        "Corporate sustainability practices"
+      ],
+      color: "from-green-500 to-emerald-500",
+      logo: "/images/european_house_of_beds_logo.jpg",
+      isActive: false
+    },
+    {
+      title: "Project Manager",
+      company: "Queen® Genetics",
+      location: "Midtjylland, Denmark",
+      period: "Jun 2022 - Nov 2022",
+      description: "Contract position managing projects in the genetics and agricultural technology sector.",
+      highlights: [
+        "Project planning & execution",
+        "Stakeholder management",
+        "Cross-functional collaboration"
+      ],
+      color: "from-orange-500 to-red-500",
+      logo: "/images/hq720.jpg",
+      isActive: false
     },
     {
       title: "Master's Thesis",
       company: "Bankdata",
-      location: "Denmark",
-      period: "2021",
-      description: "Research on agile methodologies and change management in financial technology.",
+      location: "Fredericia, Syddanmark, Denmark",
+      period: "Sep 2021 - Feb 2022",
+      description: "Research on agile methodologies and change management in financial technology. Hybrid work arrangement.",
       highlights: [
         "Agile methodology research",
         "Change management analysis",
         "Financial technology focus"
       ],
-      color: "from-green-500 to-emerald-500",
+      color: "from-indigo-500 to-blue-500",
       logo: "/logos/bankdata-logo-farvet-rgb.png",
+      isActive: false
+    },
+    {
+      title: "Student Assistant",
+      company: "Aarhus BSS - Aarhus University",
+      location: "Aarhus, Midtjylland, Denmark",
+      period: "Jul 2020 - Jun 2021",
+      description: "Part-time student assistant position supporting academic and administrative functions at Aarhus University's Business and Social Sciences department.",
+      highlights: [
+        "Academic support services",
+        "Administrative assistance",
+        "Research coordination"
+      ],
+      color: "from-yellow-500 to-orange-500",
+      logo: "/images/csm_LogoBSS.fw_4dccb47bfd.png",
       isActive: false
     }
   ];
@@ -157,7 +218,7 @@ const Experience = () => {
               <div className="text-center group">
                 <div className="relative mb-4">
                   <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-2xl font-bold text-white">5+</span>
+                    <span className="text-2xl font-bold text-white">11+</span>
                   </div>
                   <div className="absolute inset-0 bg-purple-500/20 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
                 </div>
@@ -167,7 +228,7 @@ const Experience = () => {
               <div className="text-center group">
                 <div className="relative mb-4">
                   <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-2xl font-bold text-white">2</span>
+                    <span className="text-2xl font-bold text-white">1</span>
                   </div>
                   <div className="absolute inset-0 bg-green-500/20 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
                 </div>

@@ -1,6 +1,9 @@
+'use client';
+
 import React, { useState } from 'react';
-import { FaFilePdf, FaLungs, FaLock, FaGithub, FaExternalLinkAlt, FaCode, FaCloud, FaDownload, FaTimes } from 'react-icons/fa';
+import { FaFilePdf, FaLungs, FaLock, FaGithub, FaCode, FaCloud, FaDownload, FaTimes, FaGlobe, FaExternalLinkAlt, FaChrome } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
+import Image from 'next/image';
 
 const Tools = () => {
   const [showInstallGuide, setShowInstallGuide] = useState(false);
@@ -22,55 +25,72 @@ const Tools = () => {
 
   const tools = [
     {
-      icon: <FaFilePdf size={32} className="text-red-400" />,
-      title: "PDF Merger",
-      description: "A streamlined tool for merging multiple PDF documents into a single file, designed for operational efficiency and document management workflows.",
-      technologies: ["JavaScript", "PDF.js", "Web APIs", "File Processing"],
+      icon: <FaGlobe size={32} className="text-blue-400" />,
+      logo: "/images/coverlayimage.png",
+      title: "CrosshairOverlay.com",
+      description: "A professional gaming tool providing customizable crosshair overlays for enhanced gaming precision and performance.",
+      technologies: ["Full-Stack Development", "Cloud Architecture", "User Experience Design"],
       features: [
-        "Drag & drop interface for easy file selection",
-        "Batch processing capabilities",
-        "Optimized file compression",
-        "Cross-platform compatibility"
+        "Customizable crosshair designs",
+        "Real-time overlay functionality",
+        "Cross-platform compatibility",
+        "Performance optimized"
       ],
       status: "Production",
-      category: "Document Management",
-      hasDownload: true,
-      downloadUrl: "/extensions/pdf-merger-extension.zip",
-      downloadText: "Download Chrome Extension",
-      downloadType: "extension"
+      category: "Gaming Tools",
+      hasDownload: false,
+      externalUrl: "https://crosshairoverlay.com"
     },
     {
-      icon: <FaLungs size={32} className="text-blue-400" />,
-      title: "BreatheAssistant",
-      description: "An intelligent breathing assistance application designed to help users with respiratory exercises and wellness monitoring.",
-      technologies: ["React", "Node.js", "Health APIs", "Progressive Web App"],
+      icon: <FaGlobe size={32} className="text-green-400" />,
+      logo: "/images/tncalmer.png",
+      title: "TinnitusCalmer.com",
+      description: "An innovative wellness application designed to help users manage and alleviate tinnitus symptoms through advanced audio therapy and relaxation techniques.",
+      technologies: ["Full-Stack Development", "Cloud Architecture", "User Experience Design"],
       features: [
-        "Guided breathing exercises",
-        "Progress tracking and analytics",
-        "Personalized recommendations",
-        "Offline functionality"
+        "Advanced audio therapy solutions",
+        "Personalized treatment plans",
+        "Real-time symptom tracking",
+        "User-friendly interface"
       ],
-      status: "Development",
+      status: "Production",
       category: "Health & Wellness",
-      hasDownload: true,
-      downloadUrl: "/extensions/breathingAssistant.zip",
-      downloadText: "Download PWA",
-      downloadType: "pwa"
+      hasDownload: false,
+      externalUrl: "https://tinnituscalmer.com"
     },
     {
-      icon: <FaLock size={32} className="text-green-400" />,
-      title: "Cloud Authentication System",
-      description: "A robust, self-developed authentication system built with Google Cloud Functions, providing secure user management and access control.",
-      technologies: ["Google Cloud Functions", "Firebase Auth", "Node.js", "JWT"],
+      icon: <FaGlobe size={32} className="text-purple-400" />,
+      logo: "/images/referraldealer.png",
+      title: "ReferralDealer.com",
+      description: "A comprehensive referral management platform enabling businesses to streamline their referral programs and maximize customer acquisition.",
+      technologies: ["Full-Stack Development", "Cloud Architecture", "User Experience Design"],
       features: [
-        "Multi-factor authentication",
-        "Role-based access control",
-        "Session management",
-        "API security integration"
+        "Automated referral tracking",
+        "Reward management system",
+        "Analytics and reporting",
+        "Scalable infrastructure"
       ],
       status: "Production",
-      category: "Security & Infrastructure",
-      hasDownload: false
+      category: "Business Solutions",
+      hasDownload: false,
+      externalUrl: "https://referraldealer.com"
+    },
+    {
+      icon: <FaGlobe size={32} className="text-orange-400" />,
+      logo: "/images/tbatter.png",
+      title: "Teslarabatter.dk",
+      description: "A specialized platform focused on battery solutions and energy management, providing innovative tools for sustainable energy practices.",
+      technologies: ["Full-Stack Development", "Cloud Architecture", "User Experience Design"],
+      features: [
+        "Energy management solutions",
+        "Battery optimization tools",
+        "Sustainable technology focus",
+        "Regional market expertise"
+      ],
+      status: "Production",
+      category: "Energy Solutions",
+      hasDownload: false,
+      externalUrl: "https://teslarabatter.dk"
     }
   ];
 
@@ -102,10 +122,22 @@ const Tools = () => {
             {tools.map((tool, index) => (
               <div key={index} className="glass-card gradient-border p-4 sm:p-6 md:p-8 rounded-2xl hover-card">
                 <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-8">
-                  {/* Icon and Status */}
+                  {/* Icon/Logo and Status */}
                   <div className="flex flex-col items-center lg:items-start mb-4 md:mb-6 lg:mb-0">
-                    <div className="p-4 md:p-6 bg-gray-800/50 rounded-2xl mb-3 md:mb-4 border border-gray-700/50">
-                      {tool.icon}
+                    <div className="p-2 md:p-3 bg-gray-800/50 rounded-2xl mb-3 md:mb-4 border border-gray-700/50 flex items-center justify-center w-16 h-16 md:w-20 md:h-20 overflow-hidden">
+                      {tool.logo ? (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <Image
+                            src={tool.logo}
+                            alt={`${tool.title} logo`}
+                            width={36}
+                            height={36}
+                            className="object-contain !max-w-[36px] !max-h-[36px] w-auto h-auto"
+                          />
+                        </div>
+                      ) : (
+                        tool.icon
+                      )}
                     </div>
                     <span className={`px-2 md:px-3 py-1 rounded-full text-xs md:text-sm border ${getStatusColor(tool.status)}`}>
                       {tool.status}
@@ -163,21 +195,50 @@ const Tools = () => {
                           <FaDownload size={14} className="md:w-4 md:h-4" />
                           <span className="text-xs md:text-sm font-medium">{tool.downloadText}</span>
                         </button>
+                      ) : tool.externalUrl ? (
+                        <a
+                          href={tool.externalUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="glass-card hover-card flex items-center justify-center space-x-2 md:space-x-3 px-4 md:px-6 py-2.5 md:py-3 rounded-lg bg-blue-500/20 hover:bg-blue-500/30 transition-colors"
+                        >
+                          <FaExternalLinkAlt size={14} className="md:w-4 md:h-4" />
+                          <span className="text-xs md:text-sm font-medium">Visit Website</span>
+                        </a>
                       ) : (
                         <button className="glass-card hover-card flex items-center justify-center space-x-2 md:space-x-3 px-4 md:px-6 py-2.5 md:py-3 rounded-lg bg-blue-500/20">
                           <FaCode size={14} className="md:w-4 md:h-4" />
                           <span className="text-xs md:text-sm font-medium">View Details</span>
                         </button>
                       )}
-                      <button className="glass-card hover-card flex items-center justify-center space-x-2 md:space-x-3 px-4 md:px-6 py-2.5 md:py-3 rounded-lg bg-purple-500/20">
-                        <FaExternalLinkAlt size={14} className="md:w-4 md:h-4" />
-                        <span className="text-xs md:text-sm font-medium">Live Demo</span>
-                      </button>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Upcoming Chrome Extensions */}
+          <div className="glass-card gradient-border p-4 sm:p-6 md:p-8 rounded-2xl text-center">
+            <div className="p-4 md:p-6 bg-purple-500/20 rounded-2xl mb-4 md:mb-6 inline-block">
+              <FaChrome size={32} className="md:w-10 md:h-10 text-purple-400" />
+            </div>
+            <h3 className="text-xl md:text-2xl font-semibold text-white mb-3 md:mb-4">Chrome Extensions Coming Soon</h3>
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-6">
+              Lots of different Chrome extension apps are in development and coming soon. 
+              Always open for new ideas and collaboration opportunities!
+            </p>
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+              <span className="px-3 md:px-4 py-1.5 md:py-2 bg-purple-500/20 text-purple-300 rounded-full text-xs md:text-sm border border-purple-500/30">
+                Browser Extensions
+              </span>
+              <span className="px-3 md:px-4 py-1.5 md:py-2 bg-purple-500/20 text-purple-300 rounded-full text-xs md:text-sm border border-purple-500/30">
+                Productivity Tools
+              </span>
+              <span className="px-3 md:px-4 py-1.5 md:py-2 bg-purple-500/20 text-purple-300 rounded-full text-xs md:text-sm border border-purple-500/30">
+                Open to Ideas
+              </span>
+            </div>
           </div>
 
           {/* Development Philosophy */}

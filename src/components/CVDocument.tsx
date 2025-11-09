@@ -86,10 +86,25 @@ const CVDocument = React.forwardRef<HTMLDivElement>((props, ref) => {
               <div>
                 <div className="flex justify-between items-start mb-1">
                   <div>
+                    <h4 className="font-bold text-gray-900 text-xs">Handicaphjælper</h4>
+                    <p className="text-blue-600 font-medium text-xs">Aarhus Kommune • Aarhus, Denmark</p>
+                  </div>
+                  <span className="text-xs text-gray-500 font-medium">Jan 2014 - Present</span>
+                </div>
+                <ul className="text-xs text-gray-700 space-y-0.5 ml-3">
+                  <li>• Providing support and assistance to individuals with disabilities</li>
+                  <li>• Helping wheelchair users when needed</li>
+                  <li>• Communication, problem-solving, and teamwork</li>
+                </ul>
+              </div>
+              
+              <div>
+                <div className="flex justify-between items-start mb-1">
+                  <div>
                     <h4 className="font-bold text-gray-900 text-xs">Associate Manager - Operations & IT</h4>
                     <p className="text-blue-600 font-medium text-xs">s360 • Aarhus, Denmark</p>
                   </div>
-                  <span className="text-xs text-gray-500 font-medium">May 2023 - Present</span>
+                  <span className="text-xs text-gray-500 font-medium">May 2023 - Nov 2025</span>
                 </div>
                 <ul className="text-xs text-gray-700 space-y-0.5 ml-3">
                   <li>• Leading IT operations across 5 European offices, managing 300+ employees</li>

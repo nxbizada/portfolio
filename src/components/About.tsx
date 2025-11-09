@@ -32,8 +32,8 @@ const About = () => {
                 <FaBriefcase size={24} className="md:w-8 md:h-8" color="#A855F7" />
               </div>
               <h3 className="text-base md:text-lg font-semibold text-purple-400 mb-2 md:mb-3">Current Role</h3>
-              <p className="text-gray-300 text-sm">Associate Manager, IT & Operations</p>
-              <p className="text-gray-400 text-xs">s360 • Aarhus, Denmark</p>
+              <p className="text-gray-300 text-sm">IT & Operations Management</p>
+              <p className="text-gray-400 text-xs">Handicaphjælper • Aarhus Kommune</p>
             </div>
 
             <div className="glass-card hover-card p-4 md:p-6 rounded-xl text-center">

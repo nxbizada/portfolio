@@ -39,7 +39,7 @@ const Hero = () => {
             <div className="flex justify-center mb-6 md:mb-8">
               <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden glass-card gradient-border shadow-2xl">
                 <ProfileImage
-                  alt="Farhad Nabizada - IT & Operations Manager"
+                  alt="Farhad Nabizada - IT & Operations Management"
                   fill
                   className="object-cover"
                   priority
@@ -52,12 +52,12 @@ const Hero = () => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold gradient-text tracking-tight leading-tight">
                 Farhad Nabizada
               </h1>
-              <h2 className="text-lg sm:text-xl md:text-3xl lg:text-5xl font-semibold text-white leading-tight">
-                Associate Manager - Operations & IT
-              </h2>
               <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
-                Overseeing IT operations across multiple European offices with 300+ employees at s360
+                Connecting Systems, People and Possibilities
               </p>
+              <h2 className="text-lg sm:text-xl md:text-3xl lg:text-5xl font-semibold text-white leading-tight">
+                IT & Operations Management
+              </h2>
             </div>
 
             {/* Key Expertise Icons */}
@@ -80,13 +80,20 @@ const Hero = () => {
             <div className="glass-card gradient-border p-4 sm:p-6 md:p-8 rounded-2xl max-w-4xl mx-auto">
               <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 md:mb-4">Professional Summary</h3>
               <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mb-3 md:mb-4">
-                Associate Manager at s360, overseeing IT operations across multiple European offices with over 300 employees. 
-                Specializing in optimizing IT processes, reducing costs, and managing key platforms like Google Workspace and Microsoft Azure 
-                to ensure robust infrastructure.
+                I manage and build IT systems and operations that scale — reliably, securely, and without friction. 
+                Over the past few years, I've administrated complex IT-infrastructures for 300+ employees across multiple offices, 
+                built automation solutions for onboarding and offboarding, and created internal tools that replaced repetitive manual processes. 
+                I believe great systems start by understanding both the human and technical sides of a problem — that's how I simplify complexity.
+              </p>
+              <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mb-3 md:mb-4">
+                My work sits at the intersection of technology, business operations, and change management. I build flexible, plug-and-play workspaces, 
+                implement SaaS strategies and create custom solutions, from Slack apps to authentication methods. I focus on removing friction, 
+                reducing operational costs, and enabling teams to work smarter.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
-                Beyond corporate responsibilities, I mentor IT interns, design custom IT internship programs, and professionally produce music. 
-                Passionate about solving challenges programmatically through app development and problem-solving.
+                I have also been mentoring IT-students for the past two years, sharing my knowledge while continuously learning from the curious minds I work with. 
+                My academic background from Aalborg University — in IT systems design, business intelligence, global operations, and innovation management — 
+                guides my approach to solving complex problems with both technical and strategic insight.
               </p>
             </div>
           </div>
