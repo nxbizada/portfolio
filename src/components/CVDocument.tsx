@@ -12,13 +12,13 @@ const CVDocument = React.forwardRef<HTMLDivElement>((props, ref) => {
       fontSize: '9px', 
       lineHeight: '1.3', 
       margin: 0, 
-      padding: '12mm 12mm 8mm 12mm', 
+      padding: '10mm 12mm 6mm 12mm', 
       boxSizing: 'border-box',
       overflow: 'hidden'
     }}>
       
       {/* Modern Header */}
-      <header className="mb-4">
+      <header className="mb-3">
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
             <h1 className="text-2xl font-bold text-gray-900 mb-1 tracking-tight">
@@ -26,7 +26,7 @@ const CVDocument = React.forwardRef<HTMLDivElement>((props, ref) => {
             </h1>
             <h2 className="text-sm font-medium text-blue-600 mb-2">Operations & IT Management</h2>
             <p className="text-sm text-gray-600 leading-relaxed max-w-md">
-              Results-driven IT operations manager leading teams of 300+ employees across European offices. 
+              Results-driven IT operations manager with experience as a global admin for a company with 300+ employees and multiple sites. 
               Expert in process optimization, change management, and strategic technology initiatives with proven automation and deployment experience.
             </p>
           </div>
@@ -71,17 +71,17 @@ const CVDocument = React.forwardRef<HTMLDivElement>((props, ref) => {
       <div className="grid grid-cols-3 gap-6">
         
         {/* Left Column - Main Content (2/3 width) */}
-        <div className="col-span-2 space-y-4">
+        <div className="col-span-2 space-y-3">
           
           {/* Professional Experience */}
           <section>
-            <h3 className="text-sm font-bold text-gray-900 mb-3 pb-1" style={{
+            <h3 className="text-sm font-bold text-gray-900 mb-2 pb-1" style={{
               borderBottom: '2px solid',
               borderImage: 'linear-gradient(to right, #2563eb, #7c3aed) 1'
             }}>
               PROFESSIONAL EXPERIENCE
             </h3>
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               
               <div>
                 <div className="flex justify-between items-start mb-1">
@@ -160,7 +160,7 @@ const CVDocument = React.forwardRef<HTMLDivElement>((props, ref) => {
 
           {/* Education */}
           <section>
-            <h3 className="text-sm font-bold text-gray-900 mb-3 pb-1" style={{
+            <h3 className="text-sm font-bold text-gray-900 mb-2 pb-1" style={{
               borderBottom: '2px solid',
               borderImage: 'linear-gradient(to right, #2563eb, #7c3aed) 1'
             }}>
@@ -192,39 +192,27 @@ const CVDocument = React.forwardRef<HTMLDivElement>((props, ref) => {
 
           {/* Key Technical Achievements */}
           <section>
-            <h3 className="text-sm font-bold text-gray-900 mb-3 pb-1" style={{
+            <h3 className="text-sm font-bold text-gray-900 mb-2 pb-1" style={{
               borderBottom: '2px solid',
               borderImage: 'linear-gradient(to right, #2563eb, #7c3aed) 1'
             }}>
               KEY TECHNICAL ACHIEVEMENTS
             </h3>
-            <div className="space-y-1.5 text-xs">
-              <div className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                <span className="text-gray-700">Deployed OpenWebUI across multiple environments: Google Cloud Run, VM instances, and Kubernetes clusters</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                <span className="text-gray-700">Developed Chrome extension for workflow automation and productivity enhancement</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                <span className="text-gray-700">Built full-stack automation solutions for business process optimization</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                <span className="text-gray-700">Created custom Slack applications for team collaboration and reporting</span>
-              </div>
-            </div>
+            <ul className="text-xs text-gray-700 space-y-0.5 ml-3">
+              <li>• Deployed OpenWebUI across multiple environments: Google Cloud Run, VM instances, and Kubernetes clusters</li>
+              <li>• Developed Chrome extension for workflow automation and productivity enhancement</li>
+              <li>• Built full-stack automation solutions for business process optimization</li>
+              <li>• Created custom Slack applications for team collaboration and reporting</li>
+            </ul>
           </section>
         </div>
 
         {/* Right Column - Skills & Additional Info (1/3 width) */}
-        <div className="space-y-3.5">
+        <div className="space-y-3">
           
           {/* Personal Skills */}
           <section>
-            <h3 className="text-sm font-bold text-gray-900 mb-3 pb-1" style={{
+            <h3 className="text-sm font-bold text-gray-900 mb-2 pb-1" style={{
               borderBottom: '2px solid',
               borderImage: 'linear-gradient(to right, #2563eb, #7c3aed) 1'
             }}>
@@ -260,16 +248,16 @@ const CVDocument = React.forwardRef<HTMLDivElement>((props, ref) => {
           
           {/* Core Management Skills */}
           <section>
-            <h3 className="text-sm font-bold text-gray-900 mb-3 pb-1" style={{
+            <h3 className="text-sm font-bold text-gray-900 mb-2 pb-1" style={{
               borderBottom: '2px solid',
               borderImage: 'linear-gradient(to right, #2563eb, #7c3aed) 1'
             }}>
               CORE COMPETENCIES
             </h3>
             
-            <div className="space-y-3">
+            <div className="space-y-2">
               <div>
-                <h4 className="font-semibold text-gray-800 mb-1.5 text-xs">Operations & Management</h4>
+                <h4 className="font-semibold text-gray-800 mb-1 text-xs">Operations & Management</h4>
                 <div className="space-y-1 text-xs">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-700">Operations Management</span>
@@ -315,7 +303,7 @@ const CVDocument = React.forwardRef<HTMLDivElement>((props, ref) => {
               </div>
 
               <div>
-                <h4 className="font-semibold text-gray-800 mb-1.5 text-xs">Technical & Automation</h4>
+                <h4 className="font-semibold text-gray-800 mb-1 text-xs">Technical & Automation</h4>
                 <div className="space-y-1 text-xs">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-700">Process Automation</span>
@@ -364,7 +352,7 @@ const CVDocument = React.forwardRef<HTMLDivElement>((props, ref) => {
 
           {/* Management Platforms */}
           <section>
-            <h3 className="text-sm font-bold text-gray-900 mb-3 pb-1" style={{
+            <h3 className="text-sm font-bold text-gray-900 mb-2 pb-1" style={{
               borderBottom: '2px solid',
               borderImage: 'linear-gradient(to right, #2563eb, #7c3aed) 1'
             }}>
@@ -406,13 +394,13 @@ const CVDocument = React.forwardRef<HTMLDivElement>((props, ref) => {
 
           {/* Professional Development */}
           <section>
-            <h3 className="text-sm font-bold text-gray-900 mb-3 pb-1" style={{
+            <h3 className="text-sm font-bold text-gray-900 mb-2 pb-1" style={{
               borderBottom: '2px solid',
               borderImage: 'linear-gradient(to right, #2563eb, #7c3aed) 1'
             }}>
               PROFESSIONAL DEVELOPMENT
             </h3>
-            <div className="space-y-2 text-xs">
+            <div className="space-y-1.5 text-xs">
               <div>
                 <p className="font-medium text-gray-900">IT Management Specialization</p>
                 <p className="text-gray-600">Operations & Infrastructure Focus</p>
